@@ -5,7 +5,7 @@ var request = require("request");
 
 // We are using your web app name in various places,
 // so please change it here!!!
-var myWebAppName = "SPDev-win-webhooks";
+var myWebAppName = "SPDev-lnx-webhooks";
 
 // These are for creating the zip file to upload. No need to change.
 var rootFolder = path.resolve(".");
@@ -23,7 +23,7 @@ var kuduApi =
 var userName = "$" + myWebAppName;
 
 // Paste the key here to replace the xxxxxxx's!
-var userPWD = "02wRbgnksFkylEnfllaoaqPydJMia672CnWLfLfz1X6RJSNudrbqdWmHlRrc";
+var userPWD = "82YcdB0L3FRhofJvkNlrqZRxu7pMSNruEoQ4v4BdSwaJZDHQQlDLjflmNuxL";
 
 function uploadZip(callback) {
   fs.createReadStream(zipPath)
