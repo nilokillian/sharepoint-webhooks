@@ -8,7 +8,7 @@ app.get("/_api", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Works root!");
+  res.send("Works root!!");
 });
 
 app.post("/webHook", (req, res) => {
