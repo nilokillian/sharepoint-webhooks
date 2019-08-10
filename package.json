@@ -10,7 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "config": "^3.2.2",
     "csom-node": "^0.1.6",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "winston": "^3.2.1"
   }
 }
