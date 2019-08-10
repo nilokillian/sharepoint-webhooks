@@ -1,1 +1,2 @@
 {"message":"port 1337 is being listened","level":"info","service":"user-service"}
+{"message":"port 1337 is being listened","level":"info"}
