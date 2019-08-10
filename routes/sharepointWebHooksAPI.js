@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const winston = require("winston");
+const logger = require("./startup/logging");
 
 router.get("/", (req, res) => {
   res.send("Works root!!");
@@ -13,14 +13,14 @@ router.post("/", (req, res) => {
 });
 
 function processRequest(req) {
-  winston.info(
+  logger.info(
     `Incoming request for ${req.protocol}://${req.get("host")} ${
       req.originalUrl
     }`
   );
 
   if (req.query.validationToken !== null) {
-    winston.info(
+    logger.info(
       `Subscription confirmed with Token : ${req.query.validationToken}`
     );
 
