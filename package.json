@@ -7,14 +7,10 @@
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "engines": {
-    "node": "10.14.1"
-  },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "request": "^2.83.0",
-    "zip-folder": "^1.0.0"
+    "csom-node": "^0.1.6",
+    "express": "^4.17.1"
   }
 }

@@ -31,5 +31,5 @@ function processRequest(req) {
     return req.query.validationToken;
   }
 }
-const port = 3009;
+const port = process.env.PORT || 1337;
 app.listen(port, () => console.log(`port ${port} is being listened`));
