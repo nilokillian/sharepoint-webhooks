@@ -1,2 +1,12 @@
 {"message":"port 1337 is being listened","level":"info","service":"user-service"}
 {"message":"port 1337 is being listened","level":"info"}
+{"message":"port 1337 is being listened","level":"info"}
+{"message":"Incoming request for http://localhost:1337 /api/sharepoint_webhooks","level":"info"}
+{"message":"Subscription confirmed with Token : undefined","level":"info"}
+{"message":"port 1337 is being listened","level":"info"}
+{"message":"Incoming request for http://localhost:1337/api/sharepoint_webhooks","level":"info"}
+{"message":"Subscription confirmed with Token : undefined","level":"info"}
+{"message":"port 1337 is being listened","level":"info"}
+{"message":"Incoming request for http://localhost:1337/api/sharepoint_webhooks","level":"info"}
+{"message":"Incoming request for http://localhost:1337/api/sharepoint_webhooks?validationToken=5667-ryt76-yuhjnb-fff","level":"info"}
+{"message":"Subscription confirmed with Token : 5667-ryt76-yuhjnb-fff","level":"info"}

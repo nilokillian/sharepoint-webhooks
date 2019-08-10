@@ -14,12 +14,12 @@ router.post("/", (req, res) => {
 
 function processRequest(req) {
   logger.info(
-    `Incoming request for ${req.protocol}://${req.get("host")} ${
+    `Incoming request for ${req.protocol}://${req.get("host")}${
       req.originalUrl
     }`
   );
-
-  if (req.query.validationToken !== null) {
+  console.log("req.query.validationToken", req.query.validationToken);
+  if (req.query.validationToken !== undefined) {
     logger.info(
       `Subscription confirmed with Token : ${req.query.validationToken}`
     );

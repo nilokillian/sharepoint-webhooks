@@ -1,4 +1,5 @@
 const csomApi = require("csom-node");
+const logger = require("./startup/logging");
 const settings = require("config");
 const authCtx = new AuthenticationContext(settings.url);
 const changeToken = null;
@@ -11,7 +12,7 @@ function _getChanges(io, relativeURL, listId) {
     settings.clientId,
     settings.clientSecret,
     (err, data) => {
-      console.log("Connecting to site: ", relativeURL);
+      logger.info("Connecting to site: ", relativeURL);
       const ctx = new SP.ClientContext(relativeURL); //set root web
       authCtx.setAuthenticationCookie(ctx); //authenticate
 
@@ -32,10 +33,10 @@ function _getChanges(io, relativeURL, listId) {
       ctx.load(list);
       ctx.executeQueryAsync(
         () => {
-          console.log(web.get_title());
+          logger.info(web.get_title());
         },
-        function(sender, args) {
-          console.log("An error occured: " + args.get_message());
+        (sender, args) => {
+          logger.error("An error occured: " + args.get_message());
         }
       );
     }

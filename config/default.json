@@ -1,7 +1,7 @@
 {
   "settings": {
-    "url": "webhook-app-sc-url",
-    "clientId": "webhook-app-clientId",
-    "clientSecret": "webhook-app-clientSecret"
+    "url": "WEBHOOK-APP-SC-URL",
+    "clientId": "WEBHOOK-APP-CLIENTID",
+    "clientSecret": "WEBHOOK-APP-CLIENTSECRET"
   }
 }
