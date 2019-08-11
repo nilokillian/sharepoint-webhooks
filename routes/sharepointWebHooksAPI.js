@@ -18,7 +18,7 @@ function processRequest(req) {
       req.originalUrl
     }`
   );
-
+  console.log("req : ", req);
   if (req.query.validationtoken !== undefined) {
     logger.info(
       `Subscription confirmed with Token : ${req.query.validationtoken}`
