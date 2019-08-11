@@ -25,6 +25,12 @@ function processRequest(req) {
     );
 
     return req.query.validationtoken;
+  } else {
+    logger.info(
+      `Notification received for id: ${req.body.value[0].subscriptionId}`
+    );
+    console.dir(req.body);
+    return "Request processed";
   }
 }
 
