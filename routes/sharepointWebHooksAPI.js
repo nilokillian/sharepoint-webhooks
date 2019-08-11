@@ -18,13 +18,13 @@ function processRequest(req) {
       req.originalUrl
     }`
   );
-  console.log("req.query.validationToken", req.query.validationToken);
-  if (req.query.validationToken !== undefined) {
+
+  if (req.query.validationtoken !== undefined) {
     logger.info(
-      `Subscription confirmed with Token : ${req.query.validationToken}`
+      `Subscription confirmed with Token : ${req.query.validationtoken}`
     );
 
-    return req.query.validationToken;
+    return req.query.validationtoken;
   }
 }
 
