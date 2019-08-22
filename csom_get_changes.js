@@ -1,13 +1,15 @@
 const csomApi = require("csom-node");
 const logger = require("./startup/logging");
 const settings = require("config");
-const authCtx = new AuthenticationContext(settings.url);
+const authCtx = new AuthenticationContext(
+  "https://thinkitltd712.sharepoint.com/sites/dev-sc-classic"
+);
 const changeToken = null;
 const changeTypes = ["No Changes", "Add", "Rename", "Delete", "Update"];
 
 csomApi.setLoaderOptions({ url: settings.url });
 
-function _getChanges(io, relativeURL, listId) {
+module.exports = function _getChanges(io, relativeURL, listId) {
   authCtx.acquireTokenForApp(
     settings.clientId,
     settings.clientSecret,
@@ -27,18 +29,33 @@ function _getChanges(io, relativeURL, listId) {
       cQuery.set_deleteObject(true);
       cQuery.set_changeTokenStart(changeToken);
 
-      const cnanges = list.getChanges(cQuery);
+      const changes = list.getChanges(cQuery);
 
       ctx.load(web);
       ctx.load(list);
-      ctx.executeQueryAsync(
-        () => {
-          logger.info(web.get_title());
-        },
-        (sender, args) => {
-          logger.error("An error occured: " + args.get_message());
+      ctx.load(changes);
+      ctx.executeQueryAsync(() => {
+        logger.info(
+          `Connected to site: ${web.get_title()} and found ${changes.get_count()}`
+        );
+        const changeEnumerator = changes.getEnumerator();
+
+        while (changeEnumerator.moveNext()) {
+          const changeItem = changeEnumerator.get_current();
+          const changeType = changeTypes[changeItem.get_changeType()];
+          io.emit("news", {
+            fileName: changeItem.get_itemId(),
+            image: changeType,
+            description: changeItem.get_time().toLocaleDateString("en-us")
+          });
+          //set change token
+          changeToken = changeItem.get_changeToken();
         }
-      );
+
+        // (sender, args) => {
+        //   logger.error("An error occured: " + args.get_message());
+        // };
+      });
     }
   );
-}
+};

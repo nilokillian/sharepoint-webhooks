@@ -1,6 +1,7 @@
 {
   "settings": {
-    "url": "WEBHOOK-APP-SC-URL",
+    // "url": "WEBHOOK-APP-SC-URL",
+    "url": "https://thinkitltd712.sharepoint.com/sites/dev-sc-classic",
     "clientId": "WEBHOOK-APP-CLIENTID",
     "clientSecret": "WEBHOOK-APP-CLIENTSECRET"
   }
