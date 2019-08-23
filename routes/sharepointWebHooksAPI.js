@@ -3,9 +3,15 @@ module.exports = function(io) {
   const express = require("express");
   const router = express.Router();
   const logger = require("../startup/logging");
-  const SPO = require("../csom_get_changes");
+  const CSOM = require("../CSOM");
 
-  router.get("/", (req, res) => {
+  router.get("/", async (req, res) => {
+    await CSOM.getChanges(
+      io,
+      "https://thinkitltd712.sharepoint.com/sites/dev-sc-classic",
+      "C67D1E9C-AC18-4BCA-A2E4-190180F6161B"
+    );
+
     res.send("Works root!!");
   });
 
@@ -32,11 +38,11 @@ module.exports = function(io) {
       logger.info(
         `Notification received for id: ${req.body.value[0].subscriptionId}`
       );
-      SPO._getChanges(
-        io,
-        req.body.value[0].siteUrl,
-        req.body.value[0].resource
-      );
+      // CSOM._getChanges(
+      //   io,
+      //   req.body.value[0].siteUrl,
+      //   req.body.value[0].resource
+      // );
       console.dir(req.body);
       return "Request processed";
     }
