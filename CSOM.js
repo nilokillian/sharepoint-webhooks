@@ -1,10 +1,10 @@
 const csomApi = require("csom-node");
 const logger = require("./startup/logging");
-const config = require("config");
+//const config = require("config");
 //const { url, username, password } = config.get("settings");
 
 const settings = {
-  username: process.env.USER - NAME,
+  username: process.env.USER_NAME,
   password: process.env.PASSWORD
 };
 
