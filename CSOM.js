@@ -20,7 +20,7 @@ module.exports.getChanges = function _getChanges(io, relativeURL, listId) {
     settings.username,
     settings.password,
     async function(err, data) {
-      const ctx = new SP.ClientContext(url); //set root web
+      const ctx = new SP.ClientContext(relativeURL); //set root web
 
       authCtx.setAuthenticationCookie(ctx); //authenticate
 
