@@ -1,9 +1,9 @@
 {
   "settings": {
-    "url": "https://thinkitltd712.sharepoint.com/sites/dev-sc-classic",
+    "url": "WEBHOOK-APP-SC-URL",
     "clientId": "WEBHOOK-APP-CLIENTID",
     "clientSecret": "WEBHOOK-APP-CLIENTSECRET",
-    "username": "alex@business-refinery.com",
-    "password": "Fog20332034"
+    "username": "USER-NAME",
+    "password": "PASSWORD"
   }
 }
