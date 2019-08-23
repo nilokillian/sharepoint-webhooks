@@ -1,7 +1,12 @@
 const csomApi = require("csom-node");
 const logger = require("./startup/logging");
 const config = require("config");
-const { url, username, password } = config.get("settings");
+//const { url, username, password } = config.get("settings");
+
+const settings = {
+  username: process.env.USER - NAME,
+  password: process.env.PASSWORD
+};
 
 module.exports.getChanges = function _getChanges(io, relativeURL, listId) {
   let changeToken = null;
@@ -12,8 +17,8 @@ module.exports.getChanges = function _getChanges(io, relativeURL, listId) {
   const authCtx = new AuthenticationContext(relativeURL);
 
   authCtx.acquireTokenForUser(
-    username,
-    password,
+    settings.username,
+    settings.password,
     async function(err, data) {
       const ctx = new SP.ClientContext(url); //set root web
 
