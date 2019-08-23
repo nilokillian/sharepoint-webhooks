@@ -5,7 +5,8 @@ const logger = require("./startup/logging");
 
 const settings = {
   username: process.env.USER_NAME,
-  password: process.env.PASSWORD
+  password: process.env.PASSWORD,
+  url: process.env.WEBHOOK_APP_HOST_URL
 };
 
 module.exports.getChanges = function _getChanges(io, relativeURL, listId) {
@@ -13,14 +14,14 @@ module.exports.getChanges = function _getChanges(io, relativeURL, listId) {
   let news = {};
   const changeTypes = ["No Changes", "Add", "Rename", "Delete", "Update"];
 
-  csomApi.setLoaderOptions({ url: relativeURL });
-  const authCtx = new AuthenticationContext(relativeURL);
+  csomApi.setLoaderOptions({ url: url + relativeURL });
+  const authCtx = new AuthenticationContext(url + relativeURL);
 
   authCtx.acquireTokenForUser(
     settings.username,
     settings.password,
     async function(err, data) {
-      const ctx = new SP.ClientContext(relativeURL); //set root web
+      const ctx = new SP.ClientContext(url + relativeURL); //set root web
 
       authCtx.setAuthenticationCookie(ctx); //authenticate
 

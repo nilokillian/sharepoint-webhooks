@@ -8,7 +8,7 @@ module.exports = function(io) {
   router.get("/", async (req, res) => {
     await CSOM.getChanges(
       io,
-      "https://thinkitltd712.sharepoint.com/sites/dev-sc-classic",
+      "/sites/dev-sc-classic",
       "C67D1E9C-AC18-4BCA-A2E4-190180F6161B"
     );
 
@@ -38,6 +38,7 @@ module.exports = function(io) {
       logger.info(
         `Notification received for id: ${req.body.value[0].subscriptionId}`
       );
+
       await CSOM.getChanges(
         io,
         req.body.value[0].siteUrl,
