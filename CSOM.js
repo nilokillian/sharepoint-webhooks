@@ -52,14 +52,14 @@ module.exports.getChanges = function _getChanges(io, relativeURL, listId) {
             const changeItem = changeEnumerator.get_current();
             const changeType = changeTypes[changeItem.get_changeType()];
             io.emit("news", {
-              fileName: changeItem.get_itemId(),
-              image: changeType,
+              fileId: changeItem.get_itemId(),
+              changeType: changeType,
               description: changeItem.get_time().toLocaleDateString("en-us")
             });
 
             news = {
-              fileName: changeItem.get_itemId(),
-              image: changeType,
+              fileId: changeItem.get_itemId(),
+              changeType: changeType,
               description: changeItem.get_time().toLocaleDateString("en-us")
             };
 

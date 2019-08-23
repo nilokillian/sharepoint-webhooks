@@ -38,11 +38,11 @@ module.exports = function(io) {
       logger.info(
         `Notification received for id: ${req.body.value[0].subscriptionId}`
       );
-      // CSOM._getChanges(
-      //   io,
-      //   req.body.value[0].siteUrl,
-      //   req.body.value[0].resource
-      // );
+      await CSOM.getChanges(
+        io,
+        req.body.value[0].siteUrl,
+        req.body.value[0].resource
+      );
       console.dir(req.body);
       return "Request processed";
     }
