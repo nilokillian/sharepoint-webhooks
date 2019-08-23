@@ -15,13 +15,13 @@ module.exports = function(io) {
     res.send("Works root!!");
   });
 
-  router.post("/", (req, res) => {
-    const msg = processRequest(req);
+  router.post("/", async (req, res) => {
+    const msg = await processRequest(req);
     console.log("msg : ", msg);
     res.send(msg);
   });
 
-  function processRequest(req) {
+  async function processRequest(req) {
     logger.info(
       `Incoming request for ${req.protocol}://${req.get("host")}${
         req.originalUrl
